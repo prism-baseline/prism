@@ -2,23 +2,23 @@
 
 Browser-native computational refinement infrastructure.
 
-PRISM executes deterministic asset refinement entirely within a sandboxed local execution environment using WebAssembly, SharedArrayBuffer, Web Workers, and OffscreenCanvas.
+PRISM executes deterministic asset refinement entirely within the local browser execution environment using WebAssembly, SharedArrayBuffer, Web Workers, and OffscreenCanvas.
 
 No uploads.  
 No cloud execution.  
 No server-side ingestion.  
 
-Absolute data sovereignty by architectural constraint.
+All processing remains local to the host execution environment.
 
 ---
 
-## System Architecture
+## Architecture
 
-PRISM decouples high-intensity computational workloads from the primary interface thread, distributing asynchronous execution across four isolated processing systems.
+PRISM distributes computational workloads across isolated asynchronous execution layers to preserve interface responsiveness during high-intensity processing operations.
 
 ### Chromatic Array Node — Raster Precision
 
-Asynchronous raster optimization pipeline for:
+Raster optimization pipeline for:
 - PNG
 - JPEG
 - WebP
@@ -36,7 +36,7 @@ Deterministic vector parsing runtime for:
 - EPS
 - structured geometric streams
 
-The engine removes non-essential editor metadata, collapses floating-point coordinate precision, strips namespace bloat, and restructures path topology for minimal payload density.
+The engine removes non-essential editor metadata, restructures path topology, collapses floating-point coordinate precision, and minimizes vector payload density.
 
 ---
 
@@ -46,7 +46,7 @@ Multi-threaded FFmpeg.wasm execution layer for:
 - MP4
 - WebM
 - ProRes
-- audio channel streams
+- audio streams
 
 The runtime utilizes SharedArrayBuffer-backed worker orchestration to execute local video and audio refinement pipelines entirely on-device, including automated silence detection and inactive channel elimination.
 
@@ -64,35 +64,29 @@ Execution utilizes WebAssembly Brotli compilation, geometric restructuring, and 
 
 ---
 
-## Threat Intelligence Sandbox
+## Runtime Isolation Model
 
-PRISM operates under a zero-trust local execution model designed for enterprise-grade security environments and regulated data workflows.
+PRISM operates under a local-first execution model designed for deterministic processing stability and isolated computational workloads.
 
-### Magic Byte Validation
+### Binary Signature Validation
 
-Inspects binary stream signatures prior to parser execution to prevent executable masquerading and invalid payload injection.
+Inspects binary stream signatures prior to parser execution to prevent invalid payload interpretation and unsupported format injection.
 
 ---
 
-### Micro-Chunk Streaming
+### Segmented Memory Streaming
 
-Slices large assets into bounded memory segments to prevent device exhaustion, browser instability, and uncontrolled allocation spikes during refinement operations.
+Processes large assets through bounded memory segmentation to reduce allocation spikes and maintain runtime stability across constrained hardware environments.
 
 ---
 
 ### Isolated Worker Execution
 
-All heavy computational workloads execute within isolated worker boundaries separate from the primary interface thread to reduce execution interference and maintain deterministic runtime stability.
+Computational workloads execute within dedicated worker boundaries separate from the primary interface thread to preserve rendering responsiveness and execution determinism.
 
 ---
 
-### Headless Environment Detection
-
-Detects automated scraper and non-standard execution environments to preserve runtime integrity and mitigate abusive orchestration behavior.
-
----
-
-## Local Development Environment
+## Local Development
 
 PRISM operates as a static browser-native runtime with no server-side processing dependencies.
 
@@ -108,7 +102,7 @@ cd prism
 # Install dependencies
 npm install
 
-# Start isolated development runtime
+# Start development runtime
 npm run dev
 ```
 
